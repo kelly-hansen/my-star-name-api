@@ -4,13 +4,13 @@
   "description": "**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=localdev nodemon app/app.js",
+    "dev": "cross-env NODE_ENV=localdev nodemon app/app.js",
     "knex-m": "knex migrate:latest --env localdev",
     "knex-rb": "knex migrate:rollback --all --env localdev",
     "initial-migrate": "knex migrate:up",
     "seed-db": "knex seed:run",
     "cleandb": "node ./app/db/index.js --droptables",
-    "dockerdb": "docker run -d --name mystar --restart unless-stopped -e POSTGRES_USER=user -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_DB=mystar -p 33800:5432 postgres:13"
+    "dockerdb": "docker run -d --name mystar --restart unless-stopped -e POSTGRES_USER=user -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_DB=mystar -p 33801:5432 postgres:13"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "aws-sdk": "^2.906.0",
     "config": "^3.3.6",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
